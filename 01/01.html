@@ -1,63 +1,44 @@
 // Nimi: [Rica Aurelia Metsa]
-// Ülesanne: 2
+// Ülesande number: [3]
 // Kuupäev: 14.09.2026
 
 
-// Ülesanne: Kellaaeg
-let tunnid = 2;
-let minutid = 38;
-let sekundid = 59;
+// Ülesanne: Sõidu aeg ja kaugus
+let kaugus = 120; // kaugus kilomeetrites
+let kiirus = 60;  // kiirus km/h
 
-let kellaaeg = tunnid + ":" + minutid + ":" + sekundid + "PM";
-console.log(kellaaeg);
+let sõiduAeg = kaugus / kiirus;
 
-
-// Ülesanne: Tsitaat lause sees
-let tsitaat = "The only way to do great work is to love what you do.";
-let tsitaatAutoriga = `"${tsitaat}" - Steve Jobs`;
-
-console.log(tsitaatAutoriga);
+console.log("Sõidu aeg on " + sõiduAeg + " tundi");
 
 
-// Ülesanne: Mallide kasutamine
-let eesnimi = "Jüri";
-let perenimi = "Jurakas";
+// Ülesanne: Postituste kuvamine
+let postitusteArv = 137;
+let postitusiLehel = 10;
 
-let initsiaalid = `${eesnimi[0]}.${perenimi[0]}.`;
+let lehekülgedeArv = Math.ceil(postitusteArv / postitusiLehel);
+let viimaselLehel = postitusteArv % postitusiLehel;
 
-console.log(`${eesnimi} ${perenimi} nimetähed on ${initsiaalid}`);
+// Kui jääki ei ole, on viimasel lehel 10 postitust
+if (viimaselLehel === 0) {
+    viimaselLehel = postitusiLehel;
+}
 
-
-// Ülesanne: Perenime pikkus
-let nimi = "Jurakas, Jüri";
-
-let komaAsukoht = nimi.indexOf(",");
-
-let eraldatudPerenimi = nimi.slice(0, komaAsukoht);
-
-let suurPerenimi = eraldatudPerenimi.toUpperCase();
-
-console.log(suurPerenimi);
-console.log(suurPerenimi.length);
+console.log("Lehekülgi on vaja: " + lehekülgedeArv);
+console.log("Viimasel lehel on postitusi: " + viimaselLehel);
 
 
-// Ülesanne: E-posti aadressi muutmine
-let epost = "karrolk@netlog.com";
+// Ülesanne: Serveri töökulu
+let võimsus = 400; // vattides (W)
+let elektriHind = 9.69; // senti/kWh
 
-let uusEpost = epost.replace("netlog", "gmail");
+// Muudame elektrihinna eurodeks
+let elektriHindEurodes = elektriHind / 100;
 
-console.log(uusEpost);
+// Arvutame voolutarbimise ühe tunni jooksul
+let voolutarbimine = võimsus / 1000;
 
+// Arvutame serveri töökulu ühe tunni jooksul
+let töökulu = voolutarbimine * elektriHindEurodes;
 
-// Ülesanne: Andmerida analüüs
-let andmerida = "1,Marshal,Martinovic,mmartinovic0@dedecms.com,Male,40.19.226.175";
-
-let andmed = andmerida.split(",");
-
-let email = andmed[3];
-let ipAadress = andmed[5];
-
-let kasutajanimi = email.split("@")[0];
-
-console.log(ipAadress);
-console.log(kasutajanimi);
+console.log("Serveri töökulu ühe tunni jooksul on " + töökulu.toFixed(4) + " eurot");
